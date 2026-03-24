@@ -1,19 +1,40 @@
 package com.serenitydojo.playWright;
 
 import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import com.microsoft.playwright.junit.UsePlaywright;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-@UsePlaywright
-public class displayTitle_usingPlayWrightAnnotation {
-    
+import java.util.Arrays;
+
+public class displayTitle_refactor_BrowserOptions {
+
+    Playwright playwright;
+    Browser browser;
+    Page page;
+
+    @BeforeEach
+    void setup() {
+         playwright = Playwright.create();
+         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
+                 .setHeadless(false)
+                 .setArgs(Arrays.asList("--disable-gpu", "--no-sandbox", "--disable-extensions")));
+         page = browser.newPage();
+    }
+
+    @AfterEach
+    void teardown() {
+        page.close();
+        browser.close();
+        playwright.close();
+    }
+
     @Test
-    void shouldShowThePageTitle(Page page) {
+    void shouldShowThePageTitle() {
 
         page.navigate("https://practicesoftwaretesting.com/");
         String title = page.title();
@@ -23,8 +44,9 @@ public class displayTitle_usingPlayWrightAnnotation {
         System.out.println("URL is: " + url);
 
     }
+
     @Test
-    void seachbyKeyword(Page page) {
+    void seachbyKeyword() {
         page.navigate("https://practicesoftwaretesting.com/");
         page.locator("[placeholder=Search]").fill("pliers");
         page.locator("button:has-text('Search')").click();
