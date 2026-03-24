@@ -16,6 +16,8 @@ public class displayTitle {
         String title = page.title();
         System.out.println("Title is: " + title);
         Assertions.assertTrue(title.contains("Practice Software Testing"));
+        String url = page.url();
+        System.out.println("URL is: " + url);
         page.close();
         browser.close();
         playwright.close();
