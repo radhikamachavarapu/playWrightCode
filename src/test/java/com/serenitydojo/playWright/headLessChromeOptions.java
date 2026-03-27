@@ -3,10 +3,11 @@ package com.serenitydojo.playWright;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.junit.Options;
 import com.microsoft.playwright.junit.OptionsFactory;
+import com.serenitydojo.playWright.fixtures.playWrightClass;
 
 import java.util.Arrays;
 
-public class headLessChromeOptions implements OptionsFactory {
+public class headLessChromeOptions extends playWrightClass implements OptionsFactory {
 
     @Override
     public Options getOptions() {

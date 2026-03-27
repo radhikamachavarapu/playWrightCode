@@ -1,10 +1,11 @@
-package com.serenitydojo.playWright;
+package com.serenitydojo.playWright.refactored;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.junit.UsePlaywright;
+import com.serenitydojo.playWright.headLessChromeOptions;
 import org.junit.jupiter.api.*;
 
-@UsePlaywright
+@UsePlaywright(headLessChromeOptions.class)
 public class displayTitle_usingPlayWrightAnnotation {
     
     @Test

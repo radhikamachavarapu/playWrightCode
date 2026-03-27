@@ -1,8 +1,9 @@
-package com.serenitydojo.playWright;
+package com.serenitydojo.playWright.refactored;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
 import com.microsoft.playwright.options.AriaRole;
+import com.serenitydojo.playWright.headLessChromeOptions;
 import org.junit.jupiter.api.*;
 
 @UsePlaywright(headLessChromeOptions.class)

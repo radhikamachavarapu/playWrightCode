@@ -1,42 +1,15 @@
-package com.serenitydojo.playWright;
+package com.serenitydojo.playWright.fixtures.locaters;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
-import com.microsoft.playwright.options.WaitForSelectorState;
+import com.serenitydojo.playWright.fixtures.playWrightClass;
 import org.junit.jupiter.api.*;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import java.util.Arrays;
+
 import java.util.Comparator;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
-public class waits {
-
-    private static Playwright playwright;
-    private static Browser browser;
-    private static BrowserContext browserContext;
-    Page page;
-
-    @BeforeAll
-    public static void setupBrowser() {
-        playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
-                 .setSlowMo(1000)
-                //.setArgs(Arrays.asList("--disable-gpu", "--no-sandbox", "--disable-extensions"))
-                .setHeadless(false));
-
-        browserContext= browser.newContext();
-    }
-
-    @BeforeEach
-    public void setup() {
-         page = browserContext.newPage();
-    }
-
-    @AfterAll
-    public static void teardown() {
-        browser.close();
-        playwright.close();
-    }
+public class waits extends playWrightClass {
 
     @DisplayName("Wait by product names")
     @Test
@@ -99,7 +72,7 @@ public class waits {
 
         playwright.selectors().setTestIdAttribute("data-test");
         page.navigate("https://practicesoftwaretesting.com");
-        page.getByText("Combination Pliers").first().click();
+        page.getByText("Bolt Cutters").first().click();
         page.getByText("Add to cart").click();
         assertThat(page.getByRole(AriaRole.ALERT)).isVisible();
         assertThat(page.getByRole(AriaRole.ALERT)).hasText("Product added to shopping cart.");

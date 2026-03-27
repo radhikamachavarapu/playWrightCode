@@ -1,8 +1,8 @@
-package com.serenitydojo.playWright;
+package com.serenitydojo.playWright.refactored;
 
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import com.microsoft.playwright.junit.UsePlaywright;
+import com.serenitydojo.playWright.headLessChromeOptions;
 import org.junit.jupiter.api.*;
 
 import java.util.List;

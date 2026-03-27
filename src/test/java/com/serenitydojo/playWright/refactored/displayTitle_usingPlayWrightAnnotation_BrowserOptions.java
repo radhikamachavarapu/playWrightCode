@@ -1,4 +1,4 @@
-package com.serenitydojo.playWright;
+package com.serenitydojo.playWright.refactored;
 
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;

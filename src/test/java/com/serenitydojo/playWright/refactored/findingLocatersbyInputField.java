@@ -1,14 +1,14 @@
-package com.serenitydojo.playWright;
+package com.serenitydojo.playWright.refactored;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.SelectOption;
+import com.serenitydojo.playWright.headLessChromeOptions;
 import org.junit.jupiter.api.*;
 
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -87,9 +87,6 @@ public class findingLocatersbyInputField {
             //Alternate way - 4
             var errorMessage = page.getByRole(AriaRole.ALERT).getByText("First name is required");
             assertThat(errorMessage).isVisible();
-
-
-
 
         }
 

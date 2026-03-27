@@ -1,32 +1,10 @@
-package com.serenitydojo.playWright;
+package com.serenitydojo.playWright.fixtures.locaters;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
-import org.junit.jupiter.api.AfterEach;
+import com.serenitydojo.playWright.fixtures.playWrightClass;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class displayTitle_refactor {
-
-    Playwright playwright;
-    Browser browser;
-    Page page;
-
-    @BeforeEach
-    void setup() {
-         playwright = Playwright.create();
-         browser = playwright.chromium().launch();
-         page = browser.newPage();
-    }
-
-    @AfterEach
-    void teardown() {
-        page.close();
-        browser.close();
-        playwright.close();
-    }
+public class displayTitle_refactor_BrowserOptions extends playWrightClass {
 
     @Test
     void shouldShowThePageTitle() {

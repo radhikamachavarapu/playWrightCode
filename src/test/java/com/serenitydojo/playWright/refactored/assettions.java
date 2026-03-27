@@ -1,15 +1,14 @@
-package com.serenitydojo.playWright;
+package com.serenitydojo.playWright.refactored;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.junit.UsePlaywright;
-import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
+import com.serenitydojo.playWright.headLessChromeOptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
@@ -77,8 +76,6 @@ public class assettions {
                     .isSortedAccordingTo(String.CASE_INSENSITIVE_ORDER.reversed())
                     .allSatisfy(name -> assertThat(name).isNotBlank().hasSizeGreaterThan(5));
         }
-
-
 
     }
 
