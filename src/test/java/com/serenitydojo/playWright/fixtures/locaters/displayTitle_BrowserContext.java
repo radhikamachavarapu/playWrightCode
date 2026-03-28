@@ -1,9 +1,10 @@
 package com.serenitydojo.playWright.fixtures.locaters;
 
-import com.serenitydojo.playWright.fixtures.playWrightClass;
+import com.serenitydojo.playWright.playWrightpackage.playWrightClass;
+import com.serenitydojo.playWright.playWrightpackage.playWrightClassRefactored;
 import org.junit.jupiter.api.*;
 
-public class displayTitle_BrowserContext extends playWrightClass {
+public class displayTitle_BrowserContext extends playWrightClassRefactored {
 
 
     @Test

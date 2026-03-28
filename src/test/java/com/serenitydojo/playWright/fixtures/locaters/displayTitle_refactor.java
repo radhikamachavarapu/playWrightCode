@@ -1,6 +1,6 @@
 package com.serenitydojo.playWright.fixtures.locaters;
 
-import com.serenitydojo.playWright.fixtures.playWrightClass;
+import com.serenitydojo.playWright.playWrightpackage.playWrightClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

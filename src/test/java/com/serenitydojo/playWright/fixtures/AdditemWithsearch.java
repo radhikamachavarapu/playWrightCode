@@ -3,13 +3,14 @@ package com.serenitydojo.playWright.fixtures;
 import com.google.errorprone.annotations.DoNotMock;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Route;
+import com.microsoft.playwright.Tracing;
 import com.microsoft.playwright.options.LoadState;
 import com.serenitydojo.playWright.pageObjects.*;
+import com.serenitydojo.playWright.playWrightpackage.playWrightClass;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.*;
+import org.junit.jupiter.api.*;
+
+import java.nio.file.Paths;
 import java.util.List;
 
 public class AdditemWithsearch extends playWrightClass {
@@ -23,12 +24,11 @@ public class AdditemWithsearch extends playWrightClass {
     @DisplayName("Search for products using the search box")
     @Test
     void seachProducts() throws InterruptedException {
+
         searchComponent.searchBy("pliers");
         productList.viewProductDetail("Combination Pliers");
-
         productDetails.incrementQuantity(2);
         productDetails.addToCart();
-
         navBar.openCart();
 
         List<CartLineItem> lineItems = checkoutCart.getLineItems();
@@ -81,7 +81,15 @@ public class AdditemWithsearch extends playWrightClass {
     @BeforeEach
     public void openPage() {
         page.navigate("https://practicesoftwaretesting.com");
+    }
 
+    @BeforeEach
+    public void setTrace() {
+        browserContext.tracing().start(new Tracing.StartOptions()
+                .setScreenshots(true)
+                .setSnapshots(true)
+                .setSources(true)
+        );
     }
 
     @BeforeEach
@@ -93,4 +101,13 @@ public class AdditemWithsearch extends playWrightClass {
         checkoutCart = new CheckoutCart(page);
     }
 
+    @AfterEach
+    void recordTRace(TestInfo testInfo) {
+        String traceName = testInfo.getDisplayName().replaceAll(" ", "_").toLowerCase();
+        browserContext.tracing().stop(new Tracing.StopOptions()
+                .setPath(Paths.get("target/traces/trace-"+traceName+".zip"))
+        );
+    }
+
 }
+

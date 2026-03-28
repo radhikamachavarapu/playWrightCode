@@ -1,6 +1,7 @@
 package com.serenitydojo.playWright.fixtures;
 
 import com.serenitydojo.playWright.pageObjects.ContactForm2;
+import com.serenitydojo.playWright.playWrightpackage.playWrightClass;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

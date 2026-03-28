@@ -1,0 +1,6 @@
+option-1
+# to see results in zip.file use below command in terminal
+#npx playwright show-trace trace.zip
+
+option-2
+open the link and put zip file in the this link https://trace.playwright.dev/

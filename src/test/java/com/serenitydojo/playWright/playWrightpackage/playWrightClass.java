@@ -1,4 +1,4 @@
-package com.serenitydojo.playWright.fixtures;
+package com.serenitydojo.playWright.playWrightpackage;
 
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.AfterAll;
@@ -13,7 +13,7 @@ public abstract class playWrightClass {
     protected static Browser browser;
     protected static BrowserContext browserContext;
 
-    protected Page page;
+    protected static Page page;
 
 
     @BeforeAll

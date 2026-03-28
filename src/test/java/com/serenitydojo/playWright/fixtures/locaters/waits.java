@@ -2,7 +2,7 @@ package com.serenitydojo.playWright.fixtures.locaters;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
-import com.serenitydojo.playWright.fixtures.playWrightClass;
+import com.serenitydojo.playWright.playWrightpackage.playWrightClass;
 import org.junit.jupiter.api.*;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
